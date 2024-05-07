@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+    <title>Comment Analysis</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+  </head>
+  <style>
+    body {
+        background-color: #f8f9fa;
+    }
+
+    .container {
+        margin-top: 50px;
+    }
+
+    h1 {
+        color: #007bff; 
+       
+    }
+
+    .form-control {
+        background-color: #ffffff; }
+
+    .btn-primary {
+        background-color: #007bff; 
+        border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+        background-color: #0069d9; 
+        border-color: #0062cc;
+    }
+
+    .alert-success {
+        background-color: #d4edda;  
+        color: #155724;  
+        border-color: #c3e6cb;
+    }
+
+    .alert-danger {
+        background-color: #f8d7da;  
+        color: #721c24; 
+        border-color: #f5c6cb;
+    }
+</style>
+  <body>
+    <center>
+    <h2>Welcome To Comment Analysis</h2>
+    <h4>Classifying comments based on toxicity</h4>
+    </center>
+    <!-- this section can be replaced by a child document -->
+    {% block body %}
+
+   <!--<p>This is a Flask application.</p>--> 
+    
+
+    {% endblock %}
+    <div class="container mt-5">
+      <h1 class="mb-4 ">Comment Analysis</h1>
+     
+        <form method="POST" action="{{ url_for('analyze_sentiment')}}">
+          <div class="form-group">
+              <label for="comment">Enter your comment:</label>
+              <textarea class="form-control" id="comment" name="comment" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Analyze</button>
+      </form>
+      <h2> {{output}}</h2>
+      <h2> labels : {{sentiment}}</h2>
+  </body>
+</html>
